@@ -110,7 +110,7 @@ exports.Database = class Database extends BaseAction {
    */
   async databaseManager() {
     await this.waitForSelector(this.elements.databaseManagerMenuIcon);
-    await this.wait(5); //flackyness in page
+    // await this.wait(5); //flackyness in page
     await this.mouseOver(this.elements.databaseManagerMenuIcon);
     await this.forceClick(this.elements.databaseManagerMenuIcon);
     try {
@@ -282,7 +282,7 @@ exports.Database = class Database extends BaseAction {
     await page.locator(this.elements.clickOnTable).nth('1').click();
     await this.waitForSelector(this.elements.tableRecordVisible);
     //wait for text to load
-    await this.wait(2);
+    // await this.wait(2);
     const noOfRecord = await this.getTexts(this.elements.tableRecordVisible);
     assert.equal(noOfRecord, TableDetails.noOfRecord);
   }

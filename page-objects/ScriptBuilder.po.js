@@ -227,7 +227,7 @@ exports.ScriptBuilder = class ScriptBuilder extends BaseAction {
   async clickNewScriptButton() {
     await this.waitForSelector(this.elements.newScript);
     // waiting here so that all script loads completely
-    await this.wait(3);
+    await this.wait(5);
     await this.scrollIntoElement(this.elements.newScript);
     await this.forceClick(this.elements.newScript);
   }
@@ -588,7 +588,7 @@ exports.ScriptBuilder = class ScriptBuilder extends BaseAction {
     }
     if (formFields.outcomeName) {
       // need to add wait here as when we select owner then outcome takes time to load
-      await this.wait(3);
+      // await this.wait(3);
       await this.click(this.elements.generalRulesModalElements.outcomeName);
       await this.click(
         `${this.elements.classDropDown} >> text='${formFields.outcomeName}'`
@@ -1212,7 +1212,7 @@ exports.ScriptBuilder = class ScriptBuilder extends BaseAction {
     await this.click(this.elements.contactInfo);
     await this.scrollIntoElement(this.elements.countryInput);
     // need to wait to get text value from updatecontact info tab
-    await this.wait(4);
+    await this.wait(2);
     await this.shouldHasTitleValue(this.elements.countryInput, value);
   }
 
@@ -1224,7 +1224,7 @@ exports.ScriptBuilder = class ScriptBuilder extends BaseAction {
     await this.isVisible(this.elements.apiQueryDiv);
     // if ((await this.isVisible('text=Error loading the Tree Selector modal.'))) {
     // need to wait for error popup to disappear as this error appears some time and takes time to disappear that's why applied so much wait here
-    await this.wait(15);
+    // await this.wait(15);
     // }
     await this.click(this.elements.querySelectButton);
   }

@@ -350,74 +350,74 @@ Feature: Report Analytics
             | sortBy                   | Call_end           |
         Then user delete previously added template
 
-    # @1307
-    # Scenario:Report Designer - Ticket Agent Times
-    #     When Delete 'MailboxIn_1' mailbox rules
-    #     When User navigate to ticket channel and take count of NEW Tickets
-    #     And Send email with subject as 'random'
-    #     Then select ticket queue 'TicketQueue_1' from ticket channel
-    #     When On ticket search page, search 'automation.user01@outlook.com'
-    #     Then user searches for his ticket by using 'new' as ticket status
-    #     And Select 'E-mail' option from Ticket actions
-    #     When User navigates to select the script and fill outs the email form along with attachments
-    #         | from         |                   |
-    #         | subject      | SubjectChild_1    |
-    #         | template     | TicketsTemplate_1 |
-    #         | ticketAction | reply             |
-    #     And 'send' the email response as 'close'
-    #     Then user access the reports designer menu
-    #     Then user enters csv designer details
-    #         | source   | Ticket Agent Times |
-    #         | template | New template       |
-    #     Then User navigates to 'System' tab and select 'All'
-    #     And user select add option
-    #     Then user save the template
-    #     Then user enters csv designer details
-    #         | target     | ticket_agent_times |
-    #         | targetName | TicketQueue_1      |
-    #         | dataType   | Ticket Events only |
-    #         | dataTypeID | TicketAgentTimes   |
-    #     And user downloads report
-    #     Then validate csv contains following information:
-    #         | rows                 | 1                    |
-    #         | Actual_Ticket_Status | CLOSED               |
-    #         | Agent_Full_Name      | System Administrator |
-    #         | Username             | admin                |
-    #         | Event_Type           | REPLYING             |
-    #         | Queue_Name           | TicketQueue_1        |
-    #         | sortBy               | Event_Date           |
-    #     Then user delete previously added template
+    @1307
+    Scenario:Report Designer - Ticket Agent Times
+        When Delete 'MailboxIn_1' mailbox rules
+        When User navigate to ticket channel and take count of NEW Tickets
+        And Send email with subject as 'random'
+        Then select ticket queue 'TicketQueue_1' from ticket channel
+        When On ticket search page, search 'automation.user01@outlook.com'
+        Then user searches for his ticket by using 'new' as ticket status
+        And Select 'E-mail' option from Ticket actions
+        When User navigates to select the script and fill outs the email form along with attachments
+            | from         |                   |
+            | subject      | SubjectChild_1    |
+            | template     | TicketsTemplate_1 |
+            | ticketAction | reply             |
+        And 'send' the email response as 'close'
+        Then user access the reports designer menu
+        Then user enters csv designer details
+            | source   | Ticket Agent Times |
+            | template | New template       |
+        Then User navigates to 'System' tab and select 'All'
+        And user select add option
+        Then user save the template
+        Then user enters csv designer details
+            | target     | ticket_agent_times |
+            | targetName | TicketQueue_1      |
+            | dataType   | Ticket Events only |
+            | dataTypeID | TicketAgentTimes   |
+        And user downloads report
+        Then validate csv contains following information:
+            | rows                 | 1                    |
+            | Actual_Ticket_Status | CLOSED               |
+            | Agent_Full_Name      | System Administrator |
+            | Username             | admin                |
+            | Event_Type           | REPLYING             |
+            | Queue_Name           | TicketQueue_1        |
+            | sortBy               | Event_Date           |
+        Then user delete previously added template
 
-    # @1304
-    # Scenario: Report Designer - Ticket Queue - Create Template (All Tickets by Create Date)
-    #     When Delete 'MailboxIn_1' mailbox rules
-    #     When User navigate to ticket channel and take count of NEW Tickets
-    #     And Send email with subject as 'random'
-    #     Then select ticket queue 'TicketQueue_1' from ticket channel
-    #     When On ticket search page, search 'automation.user01@outlook.com'
-    #     Then user searches for his ticket by using 'new' as ticket status
-    #     Then user access the reports designer menu
-    #     Then user enters csv designer details
-    #         | source   | Ticket Queue |
-    #         | template | New template |
-    #     Then User navigates to 'System' tab and select 'All'
-    #     And user select add option
-    #     Then user save the template
-    #     Then user enters csv designer details
-    #         | target     | ticket                     |
-    #         | targetName | TicketQueue_1              |
-    #         | dataType   | All Tickets by Create Date |
-    #         | dataTypeID | Tickets                    |
-    #     And user downloads report
-    #     Then validate csv contains following information:
-    #         | rows                 | 1                   |
-    #         | Actual_Ticket_Status | NEW                 |
-    #         | Queue_Name           | TicketQueue_1       |
-    #         | Source_Type          | MAILBOX             |
-    #         | Ticket_Episode       | INBOUND             |
-    #         | Visibility           | PUBLIC              |
-    #         | sortBy               | Ticket_Created_Date |
-    #     Then user delete previously added template
+    @1304
+    Scenario: Report Designer - Ticket Queue - Create Template (All Tickets by Create Date)
+        When Delete 'MailboxIn_1' mailbox rules
+        When User navigate to ticket channel and take count of NEW Tickets
+        And Send email with subject as 'random'
+        Then select ticket queue 'TicketQueue_1' from ticket channel
+        When On ticket search page, search 'automation.user01@outlook.com'
+        Then user searches for his ticket by using 'new' as ticket status
+        Then user access the reports designer menu
+        Then user enters csv designer details
+            | source   | Ticket Queue |
+            | template | New template |
+        Then User navigates to 'System' tab and select 'All'
+        And user select add option
+        Then user save the template
+        Then user enters csv designer details
+            | target     | ticket                     |
+            | targetName | TicketQueue_1              |
+            | dataType   | All Tickets by Create Date |
+            | dataTypeID | Tickets                    |
+        And user downloads report
+        Then validate csv contains following information:
+            | rows                 | 1                   |
+            | Actual_Ticket_Status | NEW                 |
+            | Queue_Name           | TicketQueue_1       |
+            | Source_Type          | MAILBOX             |
+            | Ticket_Episode       | INBOUND             |
+            | Visibility           | PUBLIC              |
+            | sortBy               | Ticket_Created_Date |
+        Then user delete previously added template
 
     @1328
     Scenario: Report Designer - Webchat Sessions - Create
@@ -542,93 +542,93 @@ Feature: Report Analytics
             | sortBy            | Response_Date |
         Then user delete previously added template
 
-    # @6994
-    # Scenario: Report Designer - Scripts - Create Template
-    #     When user navigates to voice manager
-    #     Then user edits the campaign 'OutboundCampaign_1'
-    #     When user navigates to dialer
-    #     Then select the dialer type 'manual'
-    #     And save the changes in edit campaign
-    #     Then user edits the DID '300501602'
-    #     And user edit DID with following configurations:
-    #         | application | Inbound Queue  |
-    #         | destination | InboundQueue_1 |
-    #     Then login to Voice Channel with '100' extension
-    #     When user selects 'OutboundCampaign_1' campaign with 'InboundQueue_1' queue in 'same' window
-    #     And user dial the number '700000000' in ready state
-    #     And user make a call
-    #     Then user state should be 'talking'
-    #     And let user wait for '2' seconds
-    #     When user navigates to script tab in voice channel and select the script
-    #     And user fills the voice script with:
-    #         | textinput | Outbound test |
-    #     And let user wait for '1' seconds
-    #     And user disconnects the call
-    #     Then user state should be 'outcomes'
-    #     When user submits 'Call Again Later' outcome and select 'Ok' outcome name
-    #     Then user state should be 'ready'
-    #     When client makes a call via API with following configurations:
-    #         | callerDestination | callerCaller | did_Data |
-    #         | 300501602         | 999888777    | 1        |
-    #     Then user state should be 'talking'
-    #     And let user wait for '2' seconds
-    #     When user navigates to script tab in voice channel and select the script
-    #     And user fills the voice script with:
-    #         | textinput | Inbound test |
-    #     And let user wait for '2' seconds
-    #     And client Hangup the '0' call via API
-    #     Then user state should be 'outcomes'
-    #     And let user wait for '2' seconds
-    #     And user submits 'Customer Hangup' outcome and select 'Ok' outcome name
-    #     When Delete 'MailboxIn_1' mailbox rules
-    #     When User navigate to ticket channel and take count of NEW Tickets
-    #     And Send email with subject as 'random'
-    #     Then select ticket queue 'TicketQueue_1' from ticket channel
-    #     When On ticket search page, search 'automation.user01@outlook.com'
-    #     Then user searches for his ticket by using 'new' as ticket status
-    #     And Select 'E-mail' option from Ticket actions
-    #     When User navigates to select the script and fill outs the email form along with attachments
-    #         | from         |                   |
-    #         | subject      | SubjectChild_1    |
-    #         | template     | TicketsTemplate_1 |
-    #         | ticketAction | reply             |
-    #         | scriptName   | Script_1          |
-    #         | label        | Tickets test      |
-    #     And 'send' the email response as 'wait'
-    #     Then user access the reports designer menu
-    #     Then user enters csv designer details
-    #         | source   | Scripts      |
-    #         | template | New template |
-    #     Then User navigates to 'System' tab and select 'All'
-    #     And user select add option
-    #     Then User navigates to 'Script' tab and select 'All'
-    #     And user select add option
-    #     Then user save the template
-    #     Then user enters csv designer details
-    #         | scripts    | Script_1                     |
-    #         | dataType   | All owners (voice + tickets) |
-    #         | dataTypeID | Scripts                      |
-    #     And user downloads report
-    #     Then validate csv contains following information in different rows:
-    #         | rows | Agent_First_Name | Agent_Last_Name | Agent_User_Name | Username | Call_Outcome_Group | Call_Outcome_name | Call_Type | Call_Subtype | DDI       | Hangup_cause    | Contact_Outcome_name | Lead_Status | Term_Reason | User_group            | _Label_here   | Owner_Type | sortBy      | Visibility | Actual_Ticket_Status | Owner_Name    | Source_Type |
-    #         | 1    | System           | Administrator   | admin           | admin    | Customer Hangup    |                   | manual    | manual       | 300501602 | NORMAL_CLEARING |                      | closed      |             | System Administrators | Tickets test  | ticket     | Script_Date | PUBLIC     | PENDING              | TicketQueue_1 | MAILBOX     |
-    #         | 2    | System           | Administrator   | admin           | admin    | Customer Hangup    | Ok                | manual    | manual       | 300501602 | NORMAL_CLEARING | Ok                   | closed      | REMOTE      | System Administrators | Inbound test  | queue      | Script_Date |            |                      |               |             |
-    #         | 3    | System           | Administrator   | admin           | admin    | Call Again Later   | Ok                | manual    | manual       | 300501602 | NORMAL_CLEARING | Ok                   | closed      | AGENT       | System Administrators | Outbound test | campaign   | Script_Date |            |                      |               |             |
-    #     Then user enters csv designer details
-    #         | dataType   | Only voice owners |
-    #         | dataTypeID | Scripts           |
-    #     And user downloads report
-    #     Then validate csv contains following information in different rows:
-    #         | rows | Agent_First_Name | Agent_Last_Name | Agent_User_Name | Username | Call_Outcome_Group | Call_Outcome_name | Call_Type | Call_Subtype | DDI       | Hangup_cause    | Contact_Outcome_name | Lead_Status | Term_Reason | User_group            | _Label_here   | Owner_Type | sortBy      |
-    #         | 1    | System           | Administrator   | admin           | admin    | Customer Hangup    | Ok                | manual    | manual       | 300501602 | NORMAL_CLEARING | Ok                   | closed      | REMOTE      | System Administrators | Inbound test  | queue      | Script_Date |
-    #         | 2    | System           | Administrator   | admin           | admin    | Call Again Later   | Ok                | manual    | manual       | 300501602 | NORMAL_CLEARING | Ok                   | closed      | AGENT       | System Administrators | Outbound test | campaign   | Script_Date |
-    #     Then user enters csv designer details
-    #         | dataType   | Only tickets owners |
-    #         | dataTypeID | Scripts             |
-    #     And user downloads report
-    #     Then validate csv contains following information in different rows:
-    #         | rows | Agent_First_Name | Agent_Last_Name | Agent_User_Name | Username | Call_Outcome_Group | Call_Outcome_name | Call_Type | Call_Subtype | DDI       | Hangup_cause    | Contact_Outcome_name | Lead_Status | Term_Reason | User_group            | _Label_here  | Owner_Type | sortBy      | Visibility | Actual_Ticket_Status | Owner_Name    | Source_Type |
-    #         | 1    | System           | Administrator   | admin           | admin    | Customer Hangup    |                   | manual    | manual       | 300501602 | NORMAL_CLEARING |                      | closed      |             | System Administrators | Tickets test | ticket     | Script_Date | PUBLIC     | PENDING              | TicketQueue_1 | MAILBOX     |
-    #     Then user delete previously added template
+    @6994
+    Scenario: Report Designer - Scripts - Create Template
+        When user navigates to voice manager
+        Then user edits the campaign 'OutboundCampaign_1'
+        When user navigates to dialer
+        Then select the dialer type 'manual'
+        And save the changes in edit campaign
+        Then user edits the DID '300501602'
+        And user edit DID with following configurations:
+            | application | Inbound Queue  |
+            | destination | InboundQueue_1 |
+        Then login to Voice Channel with '100' extension
+        When user selects 'OutboundCampaign_1' campaign with 'InboundQueue_1' queue in 'same' window
+        And user dial the number '700000000' in ready state
+        And user make a call
+        Then user state should be 'talking'
+        And let user wait for '2' seconds
+        When user navigates to script tab in voice channel and select the script
+        And user fills the voice script with:
+            | textinput | Outbound test |
+        And let user wait for '1' seconds
+        And user disconnects the call
+        Then user state should be 'outcomes'
+        When user submits 'Call Again Later' outcome and select 'Ok' outcome name
+        Then user state should be 'ready'
+        When client makes a call via API with following configurations:
+            | callerDestination | callerCaller | did_Data |
+            | 300501602         | 999888777    | 1        |
+        Then user state should be 'talking'
+        And let user wait for '2' seconds
+        When user navigates to script tab in voice channel and select the script
+        And user fills the voice script with:
+            | textinput | Inbound test |
+        And let user wait for '2' seconds
+        And client Hangup the '0' call via API
+        Then user state should be 'outcomes'
+        And let user wait for '2' seconds
+        And user submits 'Customer Hangup' outcome and select 'Ok' outcome name
+        When Delete 'MailboxIn_1' mailbox rules
+        When User navigate to ticket channel and take count of NEW Tickets
+        And Send email with subject as 'random'
+        Then select ticket queue 'TicketQueue_1' from ticket channel
+        When On ticket search page, search 'automation.user01@outlook.com'
+        Then user searches for his ticket by using 'new' as ticket status
+        And Select 'E-mail' option from Ticket actions
+        When User navigates to select the script and fill outs the email form along with attachments
+            | from         |                   |
+            | subject      | SubjectChild_1    |
+            | template     | TicketsTemplate_1 |
+            | ticketAction | reply             |
+            | scriptName   | Script_1          |
+            | label        | Tickets test      |
+        And 'send' the email response as 'wait'
+        Then user access the reports designer menu
+        Then user enters csv designer details
+            | source   | Scripts      |
+            | template | New template |
+        Then User navigates to 'System' tab and select 'All'
+        And user select add option
+        Then User navigates to 'Script' tab and select 'All'
+        And user select add option
+        Then user save the template
+        Then user enters csv designer details
+            | scripts    | Script_1                     |
+            | dataType   | All owners (voice + tickets) |
+            | dataTypeID | Scripts                      |
+        And user downloads report
+        Then validate csv contains following information in different rows:
+            | rows | Agent_First_Name | Agent_Last_Name | Agent_User_Name | Username | Call_Outcome_Group | Call_Outcome_name | Call_Type | Call_Subtype | DDI       | Hangup_cause    | Contact_Outcome_name | Lead_Status | Term_Reason | User_group            | _Label_here   | Owner_Type | sortBy      | Visibility | Actual_Ticket_Status | Owner_Name    | Source_Type |
+            | 1    | System           | Administrator   | admin           | admin    | Customer Hangup    |                   | manual    | manual       | 300501602 | NORMAL_CLEARING |                      | closed      |             | System Administrators | Tickets test  | ticket     | Script_Date | PUBLIC     | PENDING              | TicketQueue_1 | MAILBOX     |
+            | 2    | System           | Administrator   | admin           | admin    | Customer Hangup    | Ok                | manual    | manual       | 300501602 | NORMAL_CLEARING | Ok                   | closed      | REMOTE      | System Administrators | Inbound test  | queue      | Script_Date |            |                      |               |             |
+            | 3    | System           | Administrator   | admin           | admin    | Call Again Later   | Ok                | manual    | manual       | 300501602 | NORMAL_CLEARING | Ok                   | closed      | AGENT       | System Administrators | Outbound test | campaign   | Script_Date |            |                      |               |             |
+        Then user enters csv designer details
+            | dataType   | Only voice owners |
+            | dataTypeID | Scripts           |
+        And user downloads report
+        Then validate csv contains following information in different rows:
+            | rows | Agent_First_Name | Agent_Last_Name | Agent_User_Name | Username | Call_Outcome_Group | Call_Outcome_name | Call_Type | Call_Subtype | DDI       | Hangup_cause    | Contact_Outcome_name | Lead_Status | Term_Reason | User_group            | _Label_here   | Owner_Type | sortBy      |
+            | 1    | System           | Administrator   | admin           | admin    | Customer Hangup    | Ok                | manual    | manual       | 300501602 | NORMAL_CLEARING | Ok                   | closed      | REMOTE      | System Administrators | Inbound test  | queue      | Script_Date |
+            | 2    | System           | Administrator   | admin           | admin    | Call Again Later   | Ok                | manual    | manual       | 300501602 | NORMAL_CLEARING | Ok                   | closed      | AGENT       | System Administrators | Outbound test | campaign   | Script_Date |
+        Then user enters csv designer details
+            | dataType   | Only tickets owners |
+            | dataTypeID | Scripts             |
+        And user downloads report
+        Then validate csv contains following information in different rows:
+            | rows | Agent_First_Name | Agent_Last_Name | Agent_User_Name | Username | Call_Outcome_Group | Call_Outcome_name | Call_Type | Call_Subtype | DDI       | Hangup_cause    | Contact_Outcome_name | Lead_Status | Term_Reason | User_group            | _Label_here  | Owner_Type | sortBy      | Visibility | Actual_Ticket_Status | Owner_Name    | Source_Type |
+            | 1    | System           | Administrator   | admin           | admin    | Customer Hangup    |                   | manual    | manual       | 300501602 | NORMAL_CLEARING |                      | closed      |             | System Administrators | Tickets test | ticket     | Script_Date | PUBLIC     | PENDING              | TicketQueue_1 | MAILBOX     |
+        Then user delete previously added template
 
 

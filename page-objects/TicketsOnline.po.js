@@ -1129,7 +1129,7 @@ exports.ticketsOnline = class ticketsOnline extends BaseAction {
    * @returns {void} - nothing
    */
   async elementClick(eleData, data = '') {
-    await this.wait(5); //page loads too fast
+    // await this.wait(5); //page loads too fast
     if (eleData === 'Tickets Newwindow') {
       await this.waitForSelector(
         this.elements.links.ticketChannel,
@@ -1153,7 +1153,7 @@ exports.ticketsOnline = class ticketsOnline extends BaseAction {
       await this.forceClick(this.elements.ticketManager);
     }
     if (eleData === 'Create Ticket') {
-      await this.wait(4); // for create ticket link to be visible
+      // await this.wait(4); // for create ticket link to be visible
       await this.waitForSelector(this.elements.links.createTicketLinkShowBtn);
       await this.forceClick(this.elements.links.createTicketLinkShowBtn);
       await this.waitForSelector(this.elements.links.createTicketList);
@@ -1378,7 +1378,7 @@ exports.ticketsOnline = class ticketsOnline extends BaseAction {
   async clickOnLastButton() {
     await this.waitForSelector(this.elements.search.lastButton);
     //wait for notifications to disappear
-    await this.wait(4);
+    // await this.wait(4);
     const last = page.locator(this.elements.search.lastButton);
     const classAttribute = await last.getAttribute('class');
     if (!classAttribute.includes('disable')) {
@@ -1404,7 +1404,7 @@ exports.ticketsOnline = class ticketsOnline extends BaseAction {
     await this.click(this.elements.search.updatedSort);
     await this.click(this.elements.search.updatedSort);
     // waiting for results to appear after sort
-    await this.wait(3);
+    // await this.wait(3);
   }
 
   /**
@@ -1671,7 +1671,7 @@ exports.ticketsOnline = class ticketsOnline extends BaseAction {
     }
     if (wait) {
       //wait for counter to update
-      await this.wait(5);
+      // await this.wait(5);
     }
     if (apiCall) {
       await this.waitForResponse(

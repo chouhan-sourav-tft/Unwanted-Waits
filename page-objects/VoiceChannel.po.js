@@ -382,7 +382,7 @@ exports.VoiceChannel = class VoiceChannel extends BaseAction {
       await this.click(this.elements.minWrapToggleON);
     }
     //wait for tab to maximize
-    await this.wait(3);
+    // await this.wait(3);
     let currentStateOfToggleOff = await this.isVisible(
       '//div[@id="' +
       timeType +

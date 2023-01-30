@@ -111,7 +111,7 @@ exports.CRM = class Crm extends BaseAction {
    */
   async openCrm() {
     //add wait to load crm
-    await this.wait(2);
+    // await this.wait(2);
     await this.waitForSelector(this.elements.crmManager);
     await this.mouseOver(this.elements.crmManager);
     await this.click(this.elements.crmMenu);
@@ -221,7 +221,7 @@ exports.CRM = class Crm extends BaseAction {
    */
   async validateCall(datatable) {
     //wait for latest call to load
-    await this.wait(2);
+    // await this.wait(2);
     await this.openCall();
     await this.waitForSelector(this.elements.callNumberValue);
     if (datatable.phoneNumber) {

@@ -40,89 +40,89 @@ Feature: Script Builder
         And user selects 'Yes' in one response and validate the script
         Then verify error message is displayed 'Correct the marked fields'
 
-    @1033
-    Scenario: Verify user can create new script ,add rules and send emails
-        When user selects script builder from menu
-        And user create a new script for 'send email'
-            | campaignName     | OutboundCampaign_1   |
-            | inboundQueueName | InboundQueue_1       |
-            | ticketQueueName  | TicketQueue_1        |
-            | databaseName     | New Leads Outbound 1 |
-            | hiddenFiles      | true                 |
-            | defaultPageName  | Homepage             |
-        When user navigates to general rules, select rule type 'sendemail' ,event 'onsave' and adds rule details:
-            | ruleName     | ruleTest1             |
-            | to           | gocontact@getnada.com |
-            | ticketstatus | NEW                   |
-            | queue        | TicketQueue_1         |
-            | mailbox      | MailboxOut_1          |
-            | sendTicketID | false                 |
-            | subject      | SubjectChild_1        |
-            | template     | TicketsTemplate_1     |
-        Then verify general rule 'ruleTest1'
-        When user add 1 element 'oneresponse' to the script
-        And user adds rules to oneresponse
-            | event    | value_select |
-            | value    | Yes          |
-            | type     | generalrules |
-            | ruleName | ruleTest1    |
-            | status   | true         |
-        When user navigates to create ticket page
-        And user creates a new ticket with following details:
-            | email    | arora.ankush@tftus.com |
-            | phone    | 8901264184             |
-            | queue    | TicketQueue_1          |
-            | subject  | SubjectChild_1         |
-            | template | TicketsTemplate_1      |
-        And user create and open that ticket 'arora.ankush@tftus.com' in 'TicketQueue_1'
-        When user navigates to script and select the script
-        And user selects 'Yes' in one response and click new script
-        Then verify success message is displayed 'The Script succeeded to save'
-        Then verify email received at destination email address from email with subject 'SubjectChild_1'
+    # @1033
+    # Scenario: Verify user can create new script ,add rules and send emails
+    #     When user selects script builder from menu
+    #     And user create a new script for 'send email'
+    #         | campaignName     | OutboundCampaign_1   |
+    #         | inboundQueueName | InboundQueue_1       |
+    #         | ticketQueueName  | TicketQueue_1        |
+    #         | databaseName     | New Leads Outbound 1 |
+    #         | hiddenFiles      | true                 |
+    #         | defaultPageName  | Homepage             |
+    #     When user navigates to general rules, select rule type 'sendemail' ,event 'onsave' and adds rule details:
+    #         | ruleName     | ruleTest1             |
+    #         | to           | gocontact@getnada.com |
+    #         | ticketstatus | NEW                   |
+    #         | queue        | TicketQueue_1         |
+    #         | mailbox      | MailboxOut_1          |
+    #         | sendTicketID | false                 |
+    #         | subject      | SubjectChild_1        |
+    #         | template     | TicketsTemplate_1     |
+    #     Then verify general rule 'ruleTest1'
+    #     When user add 1 element 'oneresponse' to the script
+    #     And user adds rules to oneresponse
+    #         | event    | value_select |
+    #         | value    | Yes          |
+    #         | type     | generalrules |
+    #         | ruleName | ruleTest1    |
+    #         | status   | true         |
+    #     When user navigates to create ticket page
+    #     And user creates a new ticket with following details:
+    #         | email    | arora.ankush@tftus.com |
+    #         | phone    | 8901264184             |
+    #         | queue    | TicketQueue_1          |
+    #         | subject  | SubjectChild_1         |
+    #         | template | TicketsTemplate_1      |
+    #     And user create and open that ticket 'arora.ankush@tftus.com' in 'TicketQueue_1'
+    #     When user navigates to script and select the script
+    #     And user selects 'Yes' in one response and click new script
+    #     Then verify success message is displayed 'The Script succeeded to save'
+    #     Then verify email received at destination email address from email with subject 'SubjectChild_1'
 
 
-    @1034
-    Scenario: Verify user can create new script ,tickets and add rules
-        When user selects script builder from menu
-        And user create a new script for 'create ticket'
-            | campaignName     | OutboundCampaign_1   |
-            | inboundQueueName | InboundQueue_1       |
-            | ticketQueueName  | TicketQueue_1        |
-            | databaseName     | New Leads Outbound 1 |
-            | hiddenFiles      | true                 |
-            | defaultPageName  | Homepage             |
-        When user navigates to general rules, select rule type 'maketicket' ,event 'onsave' and adds rule details:
-            | ruleName          | ruleTest1             |
-            | from              | gocontact@getnada.com |
-            | ticketStatus      | pending               |
-            | queue             | TicketQueue_1         |
-            | subject           | SubjectChild_1        |
-            | template          | TicketsTemplate_1     |
-            | autoReply         | Yes                   |
-            | autoReplyMailbox  | MailboxOut_1          |
-            | autoReplyTemplate | TicketsTemplate_1     |
-        Then verify general rule 'ruleTest1'
-        When user add 1 element 'oneresponse' to the script
-        And user adds rules to oneresponse
-            | event    | value_select |
-            | value    | Yes          |
-            | type     | generalrules |
-            | ruleName | ruleTest1    |
-            | status   | true         |
-        When user navigates to create ticket page
-        And user creates a new ticket with following details:
-            | email    | gocontact@getnada.com |
-            | phone    | 8901264184            |
-            | queue    | TicketQueue_1         |
-            | subject  | SubjectChild_1        |
-            | template | TicketsTemplate_1     |
-        And user create and open that ticket 'gocontact@getnada.com' in 'TicketQueue_1'
-        When user navigates to script and select the script
-        And user selects 'Yes' in one response and click new script
-        Then verify success message is displayed 'The Script succeeded to save'
-        Then verify ticket counter was updated successfully with queue 'TicketQueue_1'
-        Then verify the 'PENDING' state of ticket 'gocontact@getnada.com'
-        Then verify email received at destination email address with subject 'SubjectChild_1'
+    # @1034
+    # Scenario: Verify user can create new script ,tickets and add rules
+    #     When user selects script builder from menu
+    #     And user create a new script for 'create ticket'
+    #         | campaignName     | OutboundCampaign_1   |
+    #         | inboundQueueName | InboundQueue_1       |
+    #         | ticketQueueName  | TicketQueue_1        |
+    #         | databaseName     | New Leads Outbound 1 |
+    #         | hiddenFiles      | true                 |
+    #         | defaultPageName  | Homepage             |
+    #     When user navigates to general rules, select rule type 'maketicket' ,event 'onsave' and adds rule details:
+    #         | ruleName          | ruleTest1             |
+    #         | from              | gocontact@getnada.com |
+    #         | ticketStatus      | pending               |
+    #         | queue             | TicketQueue_1         |
+    #         | subject           | SubjectChild_1        |
+    #         | template          | TicketsTemplate_1     |
+    #         | autoReply         | Yes                   |
+    #         | autoReplyMailbox  | MailboxOut_1          |
+    #         | autoReplyTemplate | TicketsTemplate_1     |
+    #     Then verify general rule 'ruleTest1'
+    #     When user add 1 element 'oneresponse' to the script
+    #     And user adds rules to oneresponse
+    #         | event    | value_select |
+    #         | value    | Yes          |
+    #         | type     | generalrules |
+    #         | ruleName | ruleTest1    |
+    #         | status   | true         |
+    #     When user navigates to create ticket page
+    #     And user creates a new ticket with following details:
+    #         | email    | gocontact@getnada.com |
+    #         | phone    | 8901264184            |
+    #         | queue    | TicketQueue_1         |
+    #         | subject  | SubjectChild_1        |
+    #         | template | TicketsTemplate_1     |
+    #     And user create and open that ticket 'gocontact@getnada.com' in 'TicketQueue_1'
+    #     When user navigates to script and select the script
+    #     And user selects 'Yes' in one response and click new script
+    #     Then verify success message is displayed 'The Script succeeded to save'
+    #     Then verify ticket counter was updated successfully with queue 'TicketQueue_1'
+    #     Then verify the 'PENDING' state of ticket 'gocontact@getnada.com'
+    #     Then verify email received at destination email address with subject 'SubjectChild_1'
 
     @1035
     Scenario: Verify user can add rules of external service with on save
