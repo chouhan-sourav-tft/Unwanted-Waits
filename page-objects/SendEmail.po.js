@@ -219,7 +219,7 @@ exports.SendEmail = class SendEmail extends BaseAction {
    * @return {void} Nothing
    */
   async emailModalSend(btn) {
-    await this.wait(3);
+    // await this.wait(3);
     if (btn === 'open') {
       await this.click(this.elements.sendAndOpenEmailButton);
     }
@@ -303,6 +303,6 @@ exports.SendEmail = class SendEmail extends BaseAction {
       page.locator(attachLocator).click()
     ]);
     await fileChooser.setFiles(filePath);
-    await this.wait(4); //file to upload
+    // await this.wait(4); //file to upload
   }
 };

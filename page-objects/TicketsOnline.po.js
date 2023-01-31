@@ -529,11 +529,11 @@ exports.ticketsOnline = class ticketsOnline extends BaseAction {
    * @return {void} Nothing
    */
   async deleteRule(mailBoxName) {
-    await this.wait(5);
+    // await this.wait(5);
     await this.mouseOver(this.elements.clickOnTicketManager);
     await this.waitForSelector(this.elements.ticketManagerMenu);
     await this.click(this.elements.ticketManagerMenu);
-    await this.wait(5);
+    // await this.wait(5);
     try{
       await this.click(this.elements.clickOnMailbox);
     } catch (error) {
@@ -541,19 +541,19 @@ exports.ticketsOnline = class ticketsOnline extends BaseAction {
       await this.click(this.elements.clickOnMailbox);
     }
     await this.click(`//table[@id="tm-dt-mailbox"]//td[text()="${mailBoxName}"]/..//button[@title="Edit"]`);
-    await this.wait(5); //flack fast UI
+    // await this.wait(5); //flack fast UI
     await this.click(this.elements.mailboxRule);
     await this.waitForSelector(this.elements.ruleboxTable);
     if (this.isVisible(this.elements.ruleboxCount)) {
       let count = await this.countElement(this.elements.ruleboxCount);
       if (count > 0) {
         for (let i = 1; i <= count; i++) {
-          await this.wait(1); //waiting to list update if long
+          // await this.wait(1); //waiting to list update if long
           await this.click(this.elements.mailboxRuleDelete);
         }
       }
     }
-    await this.wait(1); //waiting for page to be cleared
+    // await this.wait(1); //waiting for page to be cleared
     await this.waitForSelector(this.elements.saveRule);
     await this.click(this.elements.saveRule);
     await page.locator(this.elements.validateActivateRule, {
@@ -591,7 +591,7 @@ exports.ticketsOnline = class ticketsOnline extends BaseAction {
       await this.type(this.elements.filterEmail, filter);
     }
     await this.waitForSelector(this.elements.searchFilterBtn);
-    await this.wait(10);
+    // await this.wait(10);
     await this.click(this.elements.searchFilterBtn);
     await this.waitForSelector(this.elements.ticketSearchResults);
     await this.forceClick(this.elements.ticketSearchResults);
@@ -634,7 +634,7 @@ exports.ticketsOnline = class ticketsOnline extends BaseAction {
    * @return {void} Nothing
    */
   async ticketOption(option) {
-    await this.wait(5); //waiting for the option to be visible
+    // await this.wait(5); //waiting for the option to be visible
     if (option === 'E-mail') {
       if (await page.locator(this.elements.ticketOptionRelease).isVisible()) {
         await this.click(this.elements.ticketOptionRelease);
@@ -693,7 +693,7 @@ exports.ticketsOnline = class ticketsOnline extends BaseAction {
    * @return {void} Nothing
    */
   async clickNavBarButton() {
-    await this.wait(3); //page loads too fast
+    // await this.wait(3); //page loads too fast
     await this.waitForSelector(this.elements.ticketShowBtn);
     await this.click(this.elements.ticketShowBtn);
   }
@@ -928,7 +928,7 @@ exports.ticketsOnline = class ticketsOnline extends BaseAction {
     await this.clickFirstElement(
       this.elements.ticketChannelButton.editCommentIcon
     );
-    await this.wait(2);
+    // await this.wait(2);
     await this.type(this.elements.ticketChannelButton.inputComment, comment);
     await this.clickFirstElement(
       this.elements.ticketChannelButton.saveCommentButton
@@ -995,7 +995,7 @@ exports.ticketsOnline = class ticketsOnline extends BaseAction {
    */
   async verifyTicketMerged() {
     //Wait to load text on this element
-    await this.wait(3);
+    // await this.wait(3);
     await this.shouldContainText(
       this.elements.primaryTicketCheck,
       primaryTicketID
@@ -1012,7 +1012,7 @@ exports.ticketsOnline = class ticketsOnline extends BaseAction {
     await this.waitForSelector(this.elements.button.moreOption);
     await this.click(this.elements.button.moreOption);
     await this.waitForSelector(this.elements.ticketChannelButton.mergeButton);
-    await this.wait(2); //Waits to load the button
+    // await this.wait(2); //Waits to load the button
     await this.click(this.elements.ticketChannelButton.mergeButton);
     await this.waitForSelector(this.elements.modalMerge);
   }
@@ -1129,7 +1129,7 @@ exports.ticketsOnline = class ticketsOnline extends BaseAction {
    * @returns {void} - nothing
    */
   async elementClick(eleData, data = '') {
-    // await this.wait(5); //page loads too fast
+    await this.wait(5); //page loads too fast
     if (eleData === 'Tickets Newwindow') {
       await this.waitForSelector(
         this.elements.links.ticketChannel,
@@ -1153,7 +1153,7 @@ exports.ticketsOnline = class ticketsOnline extends BaseAction {
       await this.forceClick(this.elements.ticketManager);
     }
     if (eleData === 'Create Ticket') {
-      // await this.wait(4); // for create ticket link to be visible
+      await this.wait(4); // for create ticket link to be visible
       await this.waitForSelector(this.elements.links.createTicketLinkShowBtn);
       await this.forceClick(this.elements.links.createTicketLinkShowBtn);
       await this.waitForSelector(this.elements.links.createTicketList);
@@ -1207,7 +1207,7 @@ exports.ticketsOnline = class ticketsOnline extends BaseAction {
    */
   async addFilters(data) {
     const search = this.elements.ticketChannelButton.searchScreenElements;
-    await this.wait(3);//date filter option
+    // await this.wait(3);//date filter option
     await this.waitForSelector(search.dateFilter.titleElement);
     await this.click(search.dateFilter.titleElement);
     if (data.startDate) {
@@ -1562,14 +1562,14 @@ exports.ticketsOnline = class ticketsOnline extends BaseAction {
    */
   async replyFormField(formField, scriptName, label = '') {
     //wait required to load form
-    await this.wait(3);
+    // await this.wait(3);
     if (formField.from !== '') {
       await this.waitForSelector(this.elements.ticketReplyFromDropdown);
       await this.click(this.elements.ticketReplyFromDropdown);
       await this.type(this.elements.inputField, formField.from);
       await this.pressKey('Enter');
     }
-    await this.wait(3);// added wait to load the page
+    // await this.wait(3);// added wait to load the page
     if (formField.subject !== '') {
       await this.waitForSelector(this.elements.ticketReplySubjectdropdown);
       await this.click(this.elements.ticketReplySubjectdropdown);
@@ -1588,7 +1588,7 @@ exports.ticketsOnline = class ticketsOnline extends BaseAction {
       await this.waitForSelector(this.elements.scriptTab);
       await this.click(this.elements.scriptTab);
       //required for page to load
-      await this.wait(2);
+      // await this.wait(2);
       if (await this.isVisible(this.elements.selectScript)) {
         await this.mouseOver(this.elements.selectScript);
         await this.waitForSelector(this.elements.selectScript);
@@ -1779,7 +1779,7 @@ exports.ticketsOnline = class ticketsOnline extends BaseAction {
 
   async sendEmailFromCustomer(email, subjectType, newSubject) {
     // Wait till mail receive at destination
-    await this.wait(10);
+    // await this.wait(10);
     if (subjectType === 'reply') {
       let replySubject =
         'Re: [Ticket #' + currentTicketID + '] ' + currentTicketSubject;
@@ -1891,7 +1891,7 @@ exports.ticketsOnline = class ticketsOnline extends BaseAction {
     await this.click(this.elements.clickOnMailbox);
     await this.click(`//table[@id="tm-dt-mailbox"]//td[text()="${mailBoxName}"]/..//button[@title="Edit"]`);
     // need to add wait here so that page load
-    await this.wait(2); 
+    // await this.wait(2); 
     await this.clearField(this.elements.attachmentFileSizeBox); 
     await this.type(this.elements.attachmentFileSizeBox, fileSize);
     await this.click(this.elements.saveRule);

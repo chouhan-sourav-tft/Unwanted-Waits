@@ -32,7 +32,7 @@ AfterAll(async () => {
 // Create a fresh browser context for each test.
 Before(async () => {
   console.log('before ...');
-  global.context = await global.browser.newContext({ viewport: { width: 1920, height: 1080 } });
+  global.context = await global.browser.newContext({ viewport: { width: 1289, height: 520 } });
   global.page = await global.context.newPage();
 });
 

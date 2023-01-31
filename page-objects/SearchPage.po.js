@@ -46,7 +46,7 @@ exports.SearchPage = class SearchPage extends BaseAction {
    * @return {void} Nothing
    */
   async addFilters(startDate, endDate, status, subject) {
-    await this.wait(10); //for email to receive on platform -: 
+    // await this.wait(10); //for email to receive on platform -: 
     await this.waitForSelector(this.elements.filterByDate);
     await this.click(this.elements.filterByDate);
     await this.waitForSelector(this.elements.startDateInputTextbox);
@@ -64,7 +64,7 @@ exports.SearchPage = class SearchPage extends BaseAction {
     if (subject) {
       await this.type(this.elements.inputSubjectTextBox, subject);
     }
-    await this.wait(5); //for email to receive on platform -:
+    // await this.wait(5); //for email to receive on platform -:
   }
 
   /**
@@ -72,7 +72,7 @@ exports.SearchPage = class SearchPage extends BaseAction {
    * @return {void} Nothing
    */
   async searchTheFilter() {
-    await this.wait(10); //for email to receive on platform -: 
+    // await this.wait(10); //for email to receive on platform -: 
     await this.click(this.elements.searchButton);
   }
 
@@ -102,7 +102,7 @@ exports.SearchPage = class SearchPage extends BaseAction {
     await this.waitForSelector(this.elements.searchTable);
     await this.waitForSelector(this.elements.filterDate);
     await this.click(this.elements.filterDate);
-    await this.wait(2);//wait to load filter
+    // await this.wait(2);//wait to load filter
     await this.click(this.elements.filterDate);
     await this.waitForSelector(this.elements.searchTableSubject);
     await this.shouldContainText(`${this.elements.searchTableSubject}  >> nth=0`,subject);

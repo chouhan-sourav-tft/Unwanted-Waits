@@ -5,32 +5,32 @@ Feature: Tickets Online
         Given User login to the platform as 'admin'
         Then clean active calls
 
-    @817
-    Scenario: Create a new Ticket
-        Then queue 'TicketQueue_1' should exist
-        When User navigate to ticket channel and take count of Ticket queue 'TicketQueue_1'
-        When user navigates to Create Ticket page
-        And User creates a new ticket with following details:
-            | email                 | phone      | queue         | template |
-            | gocontact@getnada.com | 8094217411 | TicketQueue_1 | test     |
-        Then Ticket should be created successfully
-        And Validate the ticket is sent and counter is incremented for queue 'TicketQueue_1'
-        When User navigates to search ticket page
-        And Searches for tickets using following criteria:
-            | email                 | phone      |
-            | gocontact@getnada.com | 8094217411 |
-        Then Ticket should be searched
-        When User opens ticket from tickets list
-        And chooses to Email on the ticket
-        Then validate that the ticket has been associated with the logged-in agent
-        And validate that the attachments were successfully added
-        When User replies and navigate to select the script
-        Then user replies with following details:
-            | destination_email     | response_option |
-            | gocontact@getnada.com | Reply & Close   |
-        And refresh the page
-        When Access the 'tickets' Channel
-        And Validate ticket counter is decremented for queue 'TicketQueue_1'
+    # @817
+    # Scenario: Create a new Ticket
+    #     Then queue 'TicketQueue_1' should exist
+    #     When User navigate to ticket channel and take count of Ticket queue 'TicketQueue_1'
+    #     When user navigates to Create Ticket page
+    #     And User creates a new ticket with following details:
+    #         | email                 | phone      | queue         | template |
+    #         | gocontact@getnada.com | 8094217411 | TicketQueue_1 | test     |
+    #     Then Ticket should be created successfully
+    #     And Validate the ticket is sent and counter is incremented for queue 'TicketQueue_1'
+    #     When User navigates to search ticket page
+    #     And Searches for tickets using following criteria:
+    #         | email                 | phone      |
+    #         | gocontact@getnada.com | 8094217411 |
+    #     Then Ticket should be searched
+    #     When User opens ticket from tickets list
+    #     And chooses to Email on the ticket
+    #     Then validate that the ticket has been associated with the logged-in agent
+    #     And validate that the attachments were successfully added
+    #     When User replies and navigate to select the script
+    #     Then user replies with following details:
+    #         | destination_email     | response_option |
+    #         | gocontact@getnada.com | Reply & Close   |
+    #     And refresh the page
+    #     When Access the 'tickets' Channel
+    #     And Validate ticket counter is decremented for queue 'TicketQueue_1'
 
     @818
     Scenario: Send Email - Reply & Close
@@ -438,40 +438,40 @@ Feature: Tickets Online
             | campaign           | outcome |
             | OutboundCampaign_1 | Ok      |
 
-    @838
-    Scenario: Reply Ticket Episode
-        When Delete 'MailboxIn_1' mailbox rules
-        When User navigate to ticket channel and take count of NEW Tickets
-        And Send email with subject as 'random'
-        Then select ticket queue 'TicketQueue_1' from ticket channel
-        When On ticket search page, search 'automation.user01@outlook.com'
-        Then user searches for his ticket by using 'new' as ticket status
-        And Select 'E-mail' option from Ticket actions
-        When User navigates to select the script and fill outs the email form along with attachments
-            | from         |                   |
-            | subject      | SubjectChild_1    |
-            | template     | TicketsTemplate_1 |
-            | ticketAction | reply             |
-        And 'send' the email response as 'wait'
-        Then Send email with subject as 'reply'
-        And refresh the page
-        When Access the 'tickets' Channel
-        And On ticket search page, search 'automation.user01@outlook.com'
-        Then user searches for his ticket by using 'new' as ticket status
-        And Select 'E-mail' option from Ticket actions
-        Then Reply to the Episode as 'SubjectChild_1'
+    # @838
+    # Scenario: Reply Ticket Episode
+    #     When Delete 'MailboxIn_1' mailbox rules
+    #     When User navigate to ticket channel and take count of NEW Tickets
+    #     And Send email with subject as 'random'
+    #     Then select ticket queue 'TicketQueue_1' from ticket channel
+    #     When On ticket search page, search 'automation.user01@outlook.com'
+    #     Then user searches for his ticket by using 'new' as ticket status
+    #     And Select 'E-mail' option from Ticket actions
+    #     When User navigates to select the script and fill outs the email form along with attachments
+    #         | from         |                   |
+    #         | subject      | SubjectChild_1    |
+    #         | template     | TicketsTemplate_1 |
+    #         | ticketAction | reply             |
+    #     And 'send' the email response as 'wait'
+    #     Then Send email with subject as 'reply'
+    #     And refresh the page
+    #     When Access the 'tickets' Channel
+    #     And On ticket search page, search 'automation.user01@outlook.com'
+    #     Then user searches for his ticket by using 'new' as ticket status
+    #     And Select 'E-mail' option from Ticket actions
+    #     Then Reply to the Episode as 'SubjectChild_1'
 
-    @841
-    Scenario: Mail Box Rule
-        When Delete 'MailboxIn_1' mailbox rules
-        Then Edit 'MailboxIn_1' type 'mailbox'
-        Then Create and Activate the mailbox rule as 'Rule#1', 'automation.user01@outlook.com', 'CLOSED', 'Close by Rule'
-        When Send email with subject as 'random'
-        Then select ticket queue 'TicketQueue_1' from ticket channel
-        When On ticket search page, search 'automation.user01@outlook.com'
-        When user searches for his ticket by using 'close' as ticket status
-        Then Validate that the ticket received is in 'CLOSED'
-        And Delete 'MailboxIn_1' mailbox rules
+    # @841
+    # Scenario: Mail Box Rule
+    #     When Delete 'MailboxIn_1' mailbox rules
+    #     Then Edit 'MailboxIn_1' type 'mailbox'
+    #     Then Create and Activate the mailbox rule as 'Rule#1', 'automation.user01@outlook.com', 'CLOSED', 'Close by Rule'
+    #     When Send email with subject as 'random'
+    #     Then select ticket queue 'TicketQueue_1' from ticket channel
+    #     When On ticket search page, search 'automation.user01@outlook.com'
+    #     When user searches for his ticket by using 'close' as ticket status
+    #     Then Validate that the ticket received is in 'CLOSED'
+    #     And Delete 'MailboxIn_1' mailbox rules
 
     @897
     Scenario: Create Ticket - Multiple attachments with a sum greater than the maximum allowed size

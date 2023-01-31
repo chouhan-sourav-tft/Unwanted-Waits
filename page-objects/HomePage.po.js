@@ -152,7 +152,7 @@ exports.Homepage = class Homepage extends BaseAction {
 
   async reloadPage() {
     await page.reload({ waitUntil: 'load' });
-    // await this.wait(20); // added wait to load the complete page
+    await this.wait(20); // added wait to load the complete page
   }
 
   /**
